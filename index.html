@@ -8,8 +8,30 @@
     <title>Library</title>
 </head>
 <body>
-    <div id="my-library">
-
+    <div class="header">
+        <p>My Library</p>
     </div>
+    <div class="library-container">
+        <div id="my-library"></div>
+        <div class="button-container">
+            <button id="show-dialog">+</button>
+        </div>
+    </div>
+    <dialog id="add-book">
+        <form method="dialog">
+            <div>
+                <div><label for="book-title">Title:</label></div>
+                <div><input type="text" id="book-title"></div>
+            </div>
+            <div>
+                <div><label for="book-author">Author:</label></div>
+                <div><input type="text" id="book-author"></div>
+            </div>
+            <div>
+                <div><label for="book-pages">Pages:</label></div>
+                <div><input type="text" id="book-pages"></div>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>

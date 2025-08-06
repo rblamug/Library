@@ -36,3 +36,10 @@ myLibrary.forEach(book => {
         bookCard.appendChild(listItem);
     }
 });
+
+const addButton = document.getElementById('show-dialog');
+const addBook = document.getElementById('add-book');
+
+addButton.addEventListener("click", () => {
+    addBook.showModal();
+});

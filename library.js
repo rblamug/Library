@@ -3,13 +3,13 @@ const myLibrary = [
         title: 'Jurassic Park',
         author: 'Michael Crichton',
         pages: '464 pages',
-        id: '123'
+        id: 123
     },
     {
         title: 'The Lord of the Rings',
         author: 'J.R.R. Tolkien',
         pages: '1077 pages',
-        id: '345'
+        id: 345
     }
 ];
 
@@ -42,42 +42,19 @@ function displayBooks() {
         const removeBtn = document.createElement('button');
         removeBtn.textContent = "Remove";
         removeBtn.setAttribute('data-id', book.id);
+        removeBtn.classList.add('removeBtn');
         bookCard.appendChild(removeBtn);
+
+        document.querySelectorAll('.removeBtn').forEach(button => {
+            button.addEventListener('click', function () {
+                const bookId = this.getAttribute("data-id");
+                removeBook(bookId);
+             });
+        });
     });
 }
 
 displayBooks();
-
-// myLibrary.forEach(book => {
-//     const bookCard = document.createElement('div');
-//     library.appendChild(bookCard);
-//     for (const key in book) {
-//         const listItem = document.createElement('li');
-//         listItem.textContent = book[key];
-//         bookCard.appendChild(listItem);
-//     }
-//     const removeBtn = document.createElement('button');
-//     removeBtn.textContent = "Remove";
-//     removeBtn.setAttribute('data-id', book.id);
-//     bookCard.appendChild(removeBtn);
-// });
-
-
-// function showNewBook(book) {
-//     const bookCard = document.createElement('div');
-//     library.appendChild(bookCard);
-//     for (const key in book) {
-//         if (key != 'id') {
-//             const listItem = document.createElement('li');
-//             listItem.textContent = book[key];
-//             bookCard.appendChild(listItem);
-//         }
-//     }
-//     const removeBtn = document.createElement('button');
-//     removeBtn.textContent = "Remove";
-//     removeBtn.setAttribute('data-id', book.id);
-//     bookCard.appendChild(removeBtn);
-// }
 
 //remove button function
 function removeBook(id) {

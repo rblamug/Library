@@ -26,29 +26,64 @@ function addBookToLibrary(book) {
 }
 
 // display library
-const library = document.getElementById('my-library');
-
-myLibrary.forEach(book => {
-    const bookCard = document.createElement('div');
-    library.appendChild(bookCard);
-    for (const key in book) {
-        const listItem = document.createElement('li');
-        listItem.textContent = book[key];
-        bookCard.appendChild(listItem);
-    }
-});
-
-
-function showNewBook(book) {
-    const bookCard = document.createElement('div');
-    library.appendChild(bookCard);
-    for (const key in book) {
-        if (key != 'id') {
-            const listItem = document.createElement('li');
-            listItem.textContent = book[key];
-            bookCard.appendChild(listItem);
+function displayBooks() {
+    const library = document.getElementById('my-library');
+    library.innerHTML = '';
+    myLibrary.forEach(book => {
+        const bookCard = document.createElement('div');
+        library.appendChild(bookCard);
+        for (const key in book) {
+            if (key !== 'id') {
+                const listItem = document.createElement('li');
+                listItem.textContent = book[key];
+                bookCard.appendChild(listItem);
+            }
         }
-    }
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = "Remove";
+        removeBtn.setAttribute('data-id', book.id);
+        bookCard.appendChild(removeBtn);
+    });
+}
+
+displayBooks();
+
+// myLibrary.forEach(book => {
+//     const bookCard = document.createElement('div');
+//     library.appendChild(bookCard);
+//     for (const key in book) {
+//         const listItem = document.createElement('li');
+//         listItem.textContent = book[key];
+//         bookCard.appendChild(listItem);
+//     }
+//     const removeBtn = document.createElement('button');
+//     removeBtn.textContent = "Remove";
+//     removeBtn.setAttribute('data-id', book.id);
+//     bookCard.appendChild(removeBtn);
+// });
+
+
+// function showNewBook(book) {
+//     const bookCard = document.createElement('div');
+//     library.appendChild(bookCard);
+//     for (const key in book) {
+//         if (key != 'id') {
+//             const listItem = document.createElement('li');
+//             listItem.textContent = book[key];
+//             bookCard.appendChild(listItem);
+//         }
+//     }
+//     const removeBtn = document.createElement('button');
+//     removeBtn.textContent = "Remove";
+//     removeBtn.setAttribute('data-id', book.id);
+//     bookCard.appendChild(removeBtn);
+// }
+
+//remove button function
+function removeBook(id) {
+    const index = myLibrary.findIndex(book => book.id === id);
+    myLibrary.splice(index, 1);
+    displayBooks();
 }
 
 //dialog form function
@@ -74,5 +109,5 @@ addButton.addEventListener('click', (e) => {
     const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookStatus.value);
 
     addBookToLibrary(newBook);
-    showNewBook(newBook);
+    displayBooks();
 })

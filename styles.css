@@ -16,7 +16,7 @@ body {
 
 }
 
-p {
+.header-text {
     color: whitesmoke;
     font-size: 2em;
 }
@@ -35,7 +35,7 @@ p {
     justify-content: right;
 }
 
-button {
+#show-dialog {
     background-color: maroon;
     border-radius: 50%;
     height: 50px;
@@ -45,7 +45,7 @@ button {
     border: none;
 }
 
-button:active {
+#show-dialog:active {
     background-color:crimson;
 }
 
@@ -86,4 +86,23 @@ form div {
 form > div > div:nth-of-type(1) {
     width: 50px;
     justify-content: right;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    gap: 1rem;
+}
+
+form div p {
+    border-top: 1px solid gray;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.radio-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
 }

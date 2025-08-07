@@ -13,10 +13,11 @@ const myLibrary = [
     }
 ];
 
-function Book(title, author, pages) {
+function Book(title, author, pages, status) {
     this.title = title;
     this.author = author;
     this.pages = `${pages} pages`;
+    this.status = status;
     this.id = crypto.randomUUID();
 }
 
@@ -37,9 +38,41 @@ myLibrary.forEach(book => {
     }
 });
 
-const addButton = document.getElementById('show-dialog');
-const addBook = document.getElementById('add-book');
 
-addButton.addEventListener("click", () => {
-    addBook.showModal();
+function showNewBook(book) {
+    const bookCard = document.createElement('div');
+    library.appendChild(bookCard);
+    for (const key in book) {
+        if (key != 'id') {
+            const listItem = document.createElement('li');
+            listItem.textContent = book[key];
+            bookCard.appendChild(listItem);
+        }
+    }
+}
+
+//dialog form function
+const showDialog = document.getElementById('show-dialog');
+const addBookForm = document.getElementById('add-book-form');
+const addButton = document.getElementById('addButton');
+const bookTitle = addBookForm.querySelector('#book-title');
+const bookAuthor = addBookForm.querySelector('#book-author');
+const bookPages = addBookForm.querySelector('#book-pages');
+
+showDialog.addEventListener("click", () => {
+    addBookForm.showModal();
+    bookTitle.value = '';
+    bookAuthor.value = '';
+    bookPages.value = '';
 });
+
+addButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    addBookForm.close();
+
+    const bookStatus = addBookForm.querySelector('input[name="status"]:checked');
+    const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookStatus.value);
+
+    addBookToLibrary(newBook);
+    showNewBook(newBook);
+})

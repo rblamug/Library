@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="header">
-        <p>My Library</p>
+        <p class="header-text">My Library</p>
     </div>
     <div class="library-container">
         <div id="my-library"></div>
@@ -17,7 +17,7 @@
             <button id="show-dialog">+</button>
         </div>
     </div>
-    <dialog id="add-book">
+    <dialog id="add-book-form">
         <form method="dialog">
             <div>
                 <div><label for="book-title">Title:</label></div>
@@ -30,6 +30,21 @@
             <div>
                 <div><label for="book-pages">Pages:</label></div>
                 <div><input type="text" id="book-pages"></div>
+            </div>
+            <div>
+                <p>Have you read it?</p>
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" id="read" name="status" value="read">
+                <label for="read">Yes</label>
+            </div>
+            <div class="radio-buttons">
+                <input type="radio" id="not-read" name="status" value="not-read">
+                <label for="not-read">No</label>
+            </div>
+            <div class="form-buttons">
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="addButton" value="not-read">Add</button>
             </div>
         </form>
     </dialog>

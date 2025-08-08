@@ -13,7 +13,6 @@ body {
     text-align: center;
     padding: 3rem 3rem 1rem 3rem;
     height: 5vh;
-
 }
 
 .header-text {
@@ -105,4 +104,41 @@ form div p {
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
+}
+
+.removeBtn,
+.statusBtn {
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: firebrick;
+    color: white;
+    padding: 6px;
+}
+
+.removeBtn {
+    margin-right: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+#my-library div {
+    text-align: center;
+}
+
+#my-library div li:nth-of-type(1) {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+
+#my-library div li:nth-of-type(2) {
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
+#my-library div li:nth-of-type(3) {
+    padding-bottom: 10px;
 }

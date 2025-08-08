@@ -1,18 +1,18 @@
 const myLibrary = [
-    {
-        title: 'Jurassic Park',
-        author: 'by Michael Crichton',
-        pages: '464 pages',
-        id: 123,
-        status: 'Read'
-    },
-    {
-        title: 'The Lord of the Rings',
-        author: ' by J.R.R. Tolkien',
-        pages: '1077 pages',
-        id: 345,
-        status: 'Not Read'
-    }
+    // {
+    //     title: 'Jurassic Park',
+    //     author: 'by Michael Crichton',
+    //     pages: '464 pages',
+    //     id: 123,
+    //     status: 'Read'
+    // },
+    // {
+    //     title: 'The Lord of the Rings',
+    //     author: ' by J.R.R. Tolkien',
+    //     pages: '1077 pages',
+    //     id: 345,
+    //     status: 'Not Read'
+    // } This was just for testing purposes
 ];
 
 function Book(title, author, pages, status) {
